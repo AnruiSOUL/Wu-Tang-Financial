@@ -7,20 +7,9 @@ package WuTangFinancial;
  */
 public class CurrencyConverter {
 
-    public static final Double usDollar = 1.00;
-    public static final Double euro = 0.94;
-    public static final Double britishPound = 0.82;
-    public static final Double indianRupee = 68.32;
-    public static final Double australianDollar = 1.35;
-    public static final Double canadianDollar = 1.32;
-    public static final Double singaporeDollar = 1.43;
-    public static final Double swissFranc = 1.01;
-    public static final Double malaysianRinggit = 4.47;
-    public static final Double japaneseYen = 115.84;
-    public static final Double chineseYuanRenminbi = 6.92;
 
-    public Double convertCurrency (Double currencyFrom, Double currencyTo){
-        Double convertedCurrency = usDollar/currencyFrom * currencyTo;
-        return convertedCurrency;
+
+    public static Double convertCurrency (Double currencyFrom, Double currencyTo){
+        return CurrencyRates.getUsDollar()/currencyFrom * currencyTo;
     }
 }

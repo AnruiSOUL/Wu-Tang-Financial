@@ -1,7 +1,8 @@
 package WuTangFinancialTest;
 
 import WuTangFinancial.CurrencyConverter;
-import org.junit.Assert;
+import WuTangFinancial.CurrencyRates;
+import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -10,83 +11,77 @@ import static org.junit.Assert.*;
  * Created by randallcrame on 1/11/17.
  */
 public class CurrencyConverterTest {
+
+    @Before
+    public  void setUp(){
+    }
     @Test
     public void convertDollarToEuro() {
-        CurrencyConverter myMoney = new CurrencyConverter();
         Double expected = 0.94;
-        Double actual = myMoney.convertCurrency(myMoney.usDollar, myMoney.euro);
+        Double actual = CurrencyConverter.convertCurrency(CurrencyRates.getUsDollar(), CurrencyRates.getEuro());
         assertEquals(expected, actual, 0);
     }
 
     @Test
     public void convertEuroToDollar() {
-        CurrencyConverter myMoney = new CurrencyConverter();
         Double expected = 1.06;
-        Double actual = myMoney.convertCurrency(myMoney.euro, myMoney.usDollar);
+        Double actual = CurrencyConverter.convertCurrency(CurrencyRates.getEuro(), CurrencyRates.getUsDollar());
         assertEquals(expected, actual, 0.004);
     }
 
     @Test
     public void convertEuroToBritishPound() {
-        CurrencyConverter myMoney = new CurrencyConverter();
         Double expected = 0.87;
-        Double actual = myMoney.convertCurrency(myMoney.euro, myMoney.britishPound);
+        Double actual = CurrencyConverter.convertCurrency(CurrencyRates.getEuro(), CurrencyRates.getBritishPound());
         assertEquals(expected, actual, 0.003);
     }
 
     @Test
     public void convertBritishPoundToIndianRupee() {
-        CurrencyConverter myMoney = new CurrencyConverter();
         Double expected = 83.31;
-        Double actual = myMoney.convertCurrency(myMoney.britishPound, myMoney.indianRupee);
+        Double actual = CurrencyConverter.convertCurrency(CurrencyRates.getBritishPound(), CurrencyRates.getIndianRupee());
         assertEquals(expected, actual, 0.008);
     }
 
     @Test
     public void convertIndianRupeeToCanadianDollar() {
-        CurrencyConverter myMoney = new CurrencyConverter();
         Double expected = 0.01;
-        Double actual = myMoney.convertCurrency(myMoney.indianRupee, myMoney.canadianDollar);
+        Double actual = CurrencyConverter.convertCurrency(CurrencyRates.getIndianRupee(), CurrencyRates.getCanadianDollar());
         assertEquals(expected, actual, 0.02);
     }
 
     @Test
     public void convertCanadianDollarToSingaporeDollar() {
-        CurrencyConverter myMoney = new CurrencyConverter();
         Double expected = 1.08;
-        Double actual = myMoney.convertCurrency(myMoney.canadianDollar, myMoney.singaporeDollar);
+        Double actual = CurrencyConverter.convertCurrency(CurrencyRates.getCanadianDollar(), CurrencyRates.getSingaporeDollar());
         assertEquals(expected, actual, 0.004);
     }
 
     @Test
     public void convertSingaporeDollarToSwissFranc() {
-        CurrencyConverter myMoney = new CurrencyConverter();
         Double expected = 0.70;
-        Double actual = myMoney.convertCurrency(myMoney.singaporeDollar, myMoney.swissFranc);
+        Double actual = CurrencyConverter.convertCurrency(CurrencyRates.getSingaporeDollar(), CurrencyRates.getSwissFranc());
         assertEquals(expected, actual, 0.007);
     }
 
     @Test
     public void convertSwissFrancToMalaysianRinggit() {
-        CurrencyConverter myMoney = new CurrencyConverter();
         Double expected = 4.42;
-        Double actual = myMoney.convertCurrency(myMoney.swissFranc, myMoney.malaysianRinggit);
+        Double actual = CurrencyConverter.convertCurrency(CurrencyRates.getSwissFranc(), CurrencyRates.getMalaysianRinggit());
         assertEquals(expected, actual, 0.03);
     }
 
     @Test
     public void convertMalaysianRinggitToJapaneseYen() {
-        CurrencyConverter myMoney = new CurrencyConverter();
         Double expected = 25.91;
-        Double actual = myMoney.convertCurrency(myMoney.malaysianRinggit, myMoney.japaneseYen);
+        Double actual = CurrencyConverter.convertCurrency(CurrencyRates.getMalaysianRinggit(), CurrencyRates.getJapaneseYen());
         assertEquals(expected, actual, 0.02);
     }
 
     @Test
     public void convertJapaneseYenToChineseYuanRenminbi() {
-        CurrencyConverter myMoney = new CurrencyConverter();
         Double expected = 0.05;
-        Double actual = myMoney.convertCurrency(myMoney.japaneseYen, myMoney.chineseYuanRenminbi);
+        Double actual = CurrencyConverter.convertCurrency(CurrencyRates.getJapaneseYen(), CurrencyRates.getChineseYuanRenminbi());
         assertEquals(expected, actual, 0.06);
     }
 }
